@@ -1,1 +1,865 @@
-{"_comment":"This file is generated. Please edit .homeycompose/app.json instead.","id":"eu.elro.flamingo","version":"3.3.1","compatibility":">=5.0.0","sdk":3,"category":["appliances","lights"],"permissions":["homey:wireless:433"],"name":{"en":"Flamingo","nl":"Flamingo"},"brandColor":"#C000D7","description":{"en":"Give Homey the ability to control your Flamingo devices","nl":"Laat Homey Flamingo apparaten aansturen"},"images":{"large":"./assets/images/large.png","small":"./assets/images/small.png"},"platforms":["local","cloud"],"author":{"name":"Athom B.V."},"support":"https://support.athom.com/hc/en-us/requests/new","flow":{"triggers":[{"id":"AB400DSS_remote:received","title":{"en":"Button is pressed","nl":"Knop is ingedrukt"},"titleFormatted":{"en":"[[unit]] [[state]] is pressed","nl":"[[unit]] [[state]] is ingedrukt"},"args":[{"type":"device","name":"device","filter":"driver_id=AB400DSS_remote"},{"name":"unit","type":"dropdown","title":{"en":"Button","nl":"Knop"},"values":[{"id":"10000","label":{"en":"Button A","nl":"Knop A"}},{"id":"01000","label":{"en":"Button B","nl":"Knop B"}},{"id":"00100","label":{"en":"Button C","nl":"Knop C"}},{"id":"00010","label":{"en":"Button D","nl":"Knop D"}},{"id":"00001","label":{"en":"Button E","nl":"Knop E"}}]},{"name":"state","type":"dropdown","title":{"en":"State","nl":"Status"},"values":[{"id":"1","label":{"en":"On","nl":"Aan"}},{"id":"0","label":{"en":"Off","nl":"Uit"}}]}]},{"id":"FA500_remote:received","title":{"en":"Button is pressed","nl":"Knop is ingedrukt"},"titleFormatted":{"en":"[[unit]] [[state]] is pressed","nl":"[[unit]] [[state]] is ingedrukt"},"args":[{"type":"device","name":"device","filter":"driver_id=FA500_remote"},{"name":"unit","type":"dropdown","title":{"en":"Button","nl":"Knop"},"values":[{"id":"1","label":{"en":"Button A","nl":"Knop A"}},{"id":"2","label":{"en":"Button B","nl":"Knop B"}},{"id":"3","label":{"en":"Button C","nl":"Knop C"}},{"id":"4","label":{"en":"Button D","nl":"Knop D"}}]},{"name":"state","type":"dropdown","title":{"en":"State","nl":"Status"},"values":[{"id":"1","label":{"en":"On","nl":"Aan"}},{"id":"0","label":{"en":"Off","nl":"Uit"}}]}]},{"id":"SF-501R:received","title":{"en":"Button is pressed","nl":"Knop is ingedrukt"},"titleFormatted":{"en":"[[unit]] [[state]] is pressed","nl":"[[unit]] [[state]] is ingedrukt"},"args":[{"type":"device","name":"device","filter":"driver_id=SF-501R"},{"name":"unit","type":"dropdown","title":{"en":"Button","nl":"Knop"},"values":[{"id":"01","label":{"en":"Button A","nl":"Knop A"}},{"id":"10","label":{"en":"Button B","nl":"Knop B"}},{"id":"11","label":{"en":"Button C","nl":"Knop C"}},{"id":"00","label":{"en":"Button D","nl":"Knop D"}},{"id":"g","label":{"en":"Master Button","nl":"Master Knop"}}]},{"name":"state","type":"dropdown","title":{"en":"State","nl":"Status"},"values":[{"id":"1","label":{"en":"On","nl":"Aan"}},{"id":"0","label":{"en":"Off","nl":"Uit"}}]}]}]},"drivers":[{"images":{"large":"/drivers/AB400DSS_remote/assets/images/large.jpg","small":"/drivers/AB400DSS_remote/assets/images/small.jpg"},"icon":"/drivers/AB400DSS_remote/assets/icon.svg","platforms":["local","cloud"],"connectivity":["rf433"],"capabilities":[],"id":"AB400DSS_remote","name":{"en":"AB400DSS Remote","nl":"AB400DSS Afstandsbediening"},"class":"remote","pair":[{"id":"rf_transmitter_learn","options":{"title":{"en":"Copy your remote signal","nl":"Kopieer het signaal van de afstandsbediening"},"instruction":{"en":"Click a button on your remote to pair it.","nl":"Klik op een willekeurige knop op de afstandsbediening om hem te koppelen."}}}]},{"images":{"large":"/drivers/AB400DSS_socket/assets/images/large.jpg","small":"/drivers/AB400DSS_socket/assets/images/small.jpg"},"icon":"/drivers/AB400DSS_socket/assets/icon.svg","platforms":["local","cloud"],"connectivity":["rf433"],"capabilities":["onoff"],"id":"AB400DSS_socket","name":{"en":"AB400DSS Socket","nl":"AB400DSS Schakelaar"},"class":"socket","rf433":{"satelliteMode":true},"pair":[{"id":"rf_receiver_learn","navigation":{"next":"rf_dipswitch"},"options":{"title":{"en":"Copy the dipswitches","nl":"Kopieer de dipswitches"},"instruction":{"en":"Add the device by manually setting the dipswitches.","nl":"Voeg het apparaat toe door handmatig de dipswitches in te instellen."},"copyFromRemote":{"en":"Copy from remote","nl":"Kopieer van afstandsbediening"}}},{"id":"rf_dipswitch","navigation":{"prev":"rf_receiver_learn"},"options":{"title":{"en":"Copy the dipswitches","nl":"Kopieer de dipswitches"},"instruction":{"en":"Click on the dipswitches to put them in the same arrangement as those of your device, plug in the socket, then press the checkmark.","nl":"Klik op de bovenstaande dipswitches om ze gelijk aan de dipswitches van het apparaat in te stellen, druk daarna op het vinkje."},"dipswitchList":[1,2,3,4,5,[6,7,8,9,10]]}},{"id":"rf_transmitter_learn","navigation":{"prev":"rf_receiver_learn"},"options":{"title":{"en":"Copy your remote signal","nl":"Kopieer het signaal van de afstandsbediening"},"instruction":{"en":"Press the button that is paired to your socket.","nl":"Druk op de knop van de afstandsbediening waarmee het apparaat gekoppeld is."}}}]},{"images":{"large":"/drivers/FA21RF/assets/images/large.jpg","small":"/drivers/FA21RF/assets/images/small.jpg"},"icon":"/drivers/FA21RF/assets/icon.svg","platforms":["local","cloud"],"connectivity":["rf433"],"capabilities":["alarm_smoke"],"id":"FA21RF","name":{"en":"FA21RF Smoke Detector","nl":"FA21RF Rook Sensor"},"class":"sensor","pair":[{"id":"rf_transmitter_learn","options":{"title":{"en":"Copy your smokesensor signal","nl":"Kopieer het signaal van de rookmelder"},"instruction":{"en":"Press and hold the test button until it beeps. Alternatively, press and hold the learn button until the device is paired.","nl":"Houd de testknop een aantal seconde ingedrukt tot de rookmelder piept."}}}]},{"images":{"large":"/drivers/FA500_dimmer/assets/images/large.jpg","small":"/drivers/FA500_dimmer/assets/images/small.jpg"},"icon":"/drivers/FA500_dimmer/assets/icon.svg","platforms":["local","cloud"],"connectivity":["rf433"],"capabilities":["onoff","dim"],"id":"FA500_dimmer","name":{"en":"FA500D Dimmer Socket","nl":"FA500D Dimbare Schakelaar"},"class":"socket","rf433":{"satelliteMode":true},"pair":[{"id":"rf_receiver_learn","navigation":{"next":"rf_receiver_add"},"options":{"title":{"en":"Put the dimmer socket in pairing mode","nl":"Zet de dimbare contactdoos in programmeer modus"},"instruction":{"en":"Unplug the dimmer socket for a couple of seconds and plug it back in, the light should now be blinking. When it is in pairing mode click 'Next'.","nl":"Haal de dimbare contactdoos uit het stopcontact voor een aantal seconden en plaats hem terug in het stopcontact. Het rode lampje zou nu moeten knipperen. Wanneer het apparaat in koppelmodus is klik op 'Volgende'."},"copyFromRemote":{"en":"Copy from remote","nl":"Kopieer van afstandsbediening"}}},{"id":"rf_receiver_add","navigation":{"prev":"rf_receiver_learn"},"options":{"instruction":{"en":"Did the red light turn off and continuously on after that?","nl":"Ging het rode lampje uit, en daarnaa volledig aan?"}}},{"id":"rf_transmitter_learn","navigation":{"prev":"rf_receiver_learn"},"options":{"title":{"en":"Copy your remote signal","nl":"Kopieer het signaal van de afstandsbediening"},"instruction":{"en":"Press the button that is paired to your dimmer socket.","nl":"Druk op de knop van de afstandsbediening waarmee de  dimbare contactdoos gekoppeld is."}}}]},{"images":{"large":"/drivers/FA500_remote/assets/images/large.jpg","small":"/drivers/FA500_remote/assets/images/small.jpg"},"icon":"/drivers/FA500_remote/assets/icon.svg","platforms":["local","cloud"],"connectivity":["rf433"],"capabilities":[],"id":"FA500_remote","name":{"en":"FA500S Remote","nl":"FA500S Afstandsbediening"},"class":"remote","pair":[{"id":"rf_transmitter_learn","options":{"title":{"en":"Copy your remote signal","nl":"Kopieer het signaal van de afstandsbediening"},"instruction":{"en":"Click a button on your remote to pair it.","nl":"Klik op een willekeurige knop op de afstandsbediening om hem te koppelen."}}}]},{"images":{"large":"/drivers/FA500_socket/assets/images/large.jpg","small":"/drivers/FA500_socket/assets/images/small.jpg"},"icon":"/drivers/FA500_socket/assets/icon.svg","platforms":["local","cloud"],"connectivity":["rf433"],"capabilities":["onoff"],"id":"FA500_socket","name":{"en":"FA500x Socket","nl":"FA500x Schakelaar"},"class":"socket","rf433":{"satelliteMode":true},"pair":[{"id":"rf_receiver_learn","navigation":{"next":"rf_receiver_add"},"options":{"title":{"en":"Put the socket in pairing mode","nl":"Zet de contactdoos in programmeer modus"},"instruction":{"en":"Unplug the socket for a couple of seconds and plug it back in, the light should now be blinking. When it is in pairing mode click 'Next'.","nl":"Haal de contactdoos uit het stopcontact voor een aantal seconden en plaats hem terug in het stopcontact. Het rode lampje zou nu moeten knipperen. Wanneer het apparaat in koppelmodus is klik op 'Volgende'."},"copyFromRemote":{"en":"Copy from remote","nl":"Kopieer van afstandsbediening"}}},{"id":"rf_receiver_add","navigation":{"prev":"rf_receiver_learn"},"options":{"instruction":{"en":"Did the socket turn on?","nl":"Ging de contactdoos aan?"}}},{"id":"rf_transmitter_learn","navigation":{"prev":"rf_receiver_learn"},"options":{"title":{"en":"Copy your remote signal","nl":"Kopieer het signaal van de afstandsbediening"},"instruction":{"en":"Press the button that is paired to your socket.","nl":"Druk op de knop van de afstandsbediening waarmee het apparaat gekoppeld is."}}}]},{"images":{"large":"/drivers/SF-501P/assets/images/large.jpg","small":"/drivers/SF-501P/assets/images/small.jpg"},"icon":"/drivers/SF-501P/assets/icon.svg","platforms":["local","cloud"],"connectivity":["rf433"],"capabilities":["onoff"],"id":"SF-501P","name":{"en":"SF-501P Socket","nl":"SF-501P Schakelaar"},"class":"socket","rf433":{"satelliteMode":true},"pair":[{"id":"rf_receiver_learn","navigation":{"next":"rf_receiver_add"},"options":{"title":{"en":"Put the socket in pairing mode","nl":"Zet de contactdoos in programmeer modus"},"instruction":{"en":"Unplug the socket for a couple of seconds and plug it back in, the light should now be blinking. When it is in pairing mode click 'Next'.","nl":"Haal de contactdoos uit het stopcontact voor een aantal seconden en plaats hem terug in het stopcontact. Het rode lampje zou nu moeten knipperen. Wanneer het apparaat in koppelmodus is klik op 'Volgende'."},"copyFromRemote":{"en":"Copy from remote","nl":"Kopieer van afstandsbediening"}}},{"id":"rf_receiver_add","navigation":{"prev":"rf_receiver_learn"},"options":{"instruction":{"en":"Did the socket turn on?","nl":"Ging de contactdoos aan?"}}},{"id":"rf_transmitter_learn","navigation":{"prev":"rf_receiver_learn"},"options":{"title":{"en":"Copy your remote signal","nl":"Kopieer het signaal van de afstandsbediening"},"instruction":{"en":"Press the button that is paired to your socket.","nl":"Druk op de knop van de afstandsbediening waarmee het apparaat gekoppeld is."}}}]},{"images":{"large":"/drivers/SF-501R/assets/images/large.jpg","small":"/drivers/SF-501R/assets/images/small.jpg"},"icon":"/drivers/SF-501R/assets/icon.svg","platforms":["local","cloud"],"connectivity":["rf433"],"capabilities":[],"id":"SF-501R","name":{"en":"SF-501R Remote","nl":"SF-501R Afstandsbediening"},"class":"remote","pair":[{"id":"rf_transmitter_learn","options":{"title":{"en":"Copy your remote signal","nl":"Kopieer het signaal van de afstandsbediening"},"instruction":{"en":"Click a button on your remote to pair it.","nl":"Klik op een willekeurige knop op de afstandsbediening om hem te koppelen."}}}]}],"signals":{"433":{"flamingo":{"sof":[225,2774],"eof":[236],"words":[[240,308,240,1348],[240,1338,240,320]],"interval":10150,"sensitivity":0.5,"repetitions":5,"minimalLength":32,"maximalLength":36},"flamingo-elro":{"sof":[],"eof":[331],"words":[[322,1066,1018,367],[330,1058,329,1057]],"interval":9940,"repetitions":10,"sensitivity":0.5,"minimalLength":12,"maximalLength":12},"flamingo-promax":{"sof":[260,5000],"eof":[],"words":[[280,1050],[960,400]],"sensitivity":0.27,"repetitions":4,"minimalLength":28,"maximalLength":28},"flamingo-smoke":{"sof":[8090,912,797],"eof":[],"words":[[2742,797],[1395,797]],"interval":12770,"sensitivity":0.5,"repetitions":50,"minimalLength":24,"maximalLength":24}}}}
+{
+  "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
+  "id": "eu.elro.flamingo",
+  "version": "3.3.1",
+  "compatibility": ">=5.0.0",
+  "sdk": 3,
+  "category": [
+    "appliances",
+    "lights"
+  ],
+  "permissions": [
+    "homey:wireless:433"
+  ],
+  "name": {
+    "en": "Flamingo",
+    "nl": "Flamingo"
+  },
+  "brandColor": "#C000D7",
+  "description": {
+    "en": "Give Homey the ability to control your Flamingo devices",
+    "nl": "Laat Homey Flamingo apparaten aansturen"
+  },
+  "images": {
+    "large": "./assets/images/large.png",
+    "small": "./assets/images/small.png"
+  },
+  "platforms": [
+    "local",
+    "cloud"
+  ],
+  "author": {
+    "name": "Athom B.V."
+  },
+  "support": "https://support.athom.com/hc/en-us/requests/new",
+  "flow": {
+    "triggers": [
+      {
+        "id": "AB400DSS_remote:received",
+        "title": {
+          "en": "Button is pressed",
+          "nl": "Knop is ingedrukt"
+        },
+        "titleFormatted": {
+          "en": "[[unit]] [[state]] is pressed",
+          "nl": "[[unit]] [[state]] is ingedrukt"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=AB400DSS_remote"
+          },
+          {
+            "name": "unit",
+            "type": "dropdown",
+            "title": {
+              "en": "Button",
+              "nl": "Knop"
+            },
+            "values": [
+              {
+                "id": "10000",
+                "label": {
+                  "en": "Button A",
+                  "nl": "Knop A"
+                }
+              },
+              {
+                "id": "01000",
+                "label": {
+                  "en": "Button B",
+                  "nl": "Knop B"
+                }
+              },
+              {
+                "id": "00100",
+                "label": {
+                  "en": "Button C",
+                  "nl": "Knop C"
+                }
+              },
+              {
+                "id": "00010",
+                "label": {
+                  "en": "Button D",
+                  "nl": "Knop D"
+                }
+              },
+              {
+                "id": "00001",
+                "label": {
+                  "en": "Button E",
+                  "nl": "Knop E"
+                }
+              }
+            ]
+          },
+          {
+            "name": "state",
+            "type": "dropdown",
+            "title": {
+              "en": "State",
+              "nl": "Status"
+            },
+            "values": [
+              {
+                "id": "1",
+                "label": {
+                  "en": "On",
+                  "nl": "Aan"
+                }
+              },
+              {
+                "id": "0",
+                "label": {
+                  "en": "Off",
+                  "nl": "Uit"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "FA500_remote:received",
+        "title": {
+          "en": "Button is pressed",
+          "nl": "Knop is ingedrukt"
+        },
+        "titleFormatted": {
+          "en": "[[unit]] [[state]] is pressed",
+          "nl": "[[unit]] [[state]] is ingedrukt"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=FA500_remote"
+          },
+          {
+            "name": "unit",
+            "type": "dropdown",
+            "title": {
+              "en": "Button",
+              "nl": "Knop"
+            },
+            "values": [
+              {
+                "id": "1",
+                "label": {
+                  "en": "Button A",
+                  "nl": "Knop A"
+                }
+              },
+              {
+                "id": "2",
+                "label": {
+                  "en": "Button B",
+                  "nl": "Knop B"
+                }
+              },
+              {
+                "id": "3",
+                "label": {
+                  "en": "Button C",
+                  "nl": "Knop C"
+                }
+              },
+              {
+                "id": "4",
+                "label": {
+                  "en": "Button D",
+                  "nl": "Knop D"
+                }
+              }
+            ]
+          },
+          {
+            "name": "state",
+            "type": "dropdown",
+            "title": {
+              "en": "State",
+              "nl": "Status"
+            },
+            "values": [
+              {
+                "id": "1",
+                "label": {
+                  "en": "On",
+                  "nl": "Aan"
+                }
+              },
+              {
+                "id": "0",
+                "label": {
+                  "en": "Off",
+                  "nl": "Uit"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "SF-501R:received",
+        "title": {
+          "en": "Button is pressed",
+          "nl": "Knop is ingedrukt"
+        },
+        "titleFormatted": {
+          "en": "[[unit]] [[state]] is pressed",
+          "nl": "[[unit]] [[state]] is ingedrukt"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=SF-501R"
+          },
+          {
+            "name": "unit",
+            "type": "dropdown",
+            "title": {
+              "en": "Button",
+              "nl": "Knop"
+            },
+            "values": [
+              {
+                "id": "01",
+                "label": {
+                  "en": "Button A",
+                  "nl": "Knop A"
+                }
+              },
+              {
+                "id": "10",
+                "label": {
+                  "en": "Button B",
+                  "nl": "Knop B"
+                }
+              },
+              {
+                "id": "11",
+                "label": {
+                  "en": "Button C",
+                  "nl": "Knop C"
+                }
+              },
+              {
+                "id": "00",
+                "label": {
+                  "en": "Button D",
+                  "nl": "Knop D"
+                }
+              },
+              {
+                "id": "g",
+                "label": {
+                  "en": "Master Button",
+                  "nl": "Master Knop"
+                }
+              }
+            ]
+          },
+          {
+            "name": "state",
+            "type": "dropdown",
+            "title": {
+              "en": "State",
+              "nl": "Status"
+            },
+            "values": [
+              {
+                "id": "1",
+                "label": {
+                  "en": "On",
+                  "nl": "Aan"
+                }
+              },
+              {
+                "id": "0",
+                "label": {
+                  "en": "Off",
+                  "nl": "Uit"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "drivers": [
+    {
+      "images": {
+        "large": "/drivers/AB400DSS_remote/assets/images/large.jpg",
+        "small": "/drivers/AB400DSS_remote/assets/images/small.jpg"
+      },
+      "icon": "/drivers/AB400DSS_remote/assets/icon.svg",
+      "platforms": [
+        "local",
+        "cloud"
+      ],
+      "connectivity": [
+        "rf433"
+      ],
+      "capabilities": [],
+      "id": "AB400DSS_remote",
+      "name": {
+        "en": "AB400DSS Remote",
+        "nl": "AB400DSS Afstandsbediening"
+      },
+      "class": "remote",
+      "pair": [
+        {
+          "id": "rf_transmitter_learn",
+          "options": {
+            "title": {
+              "en": "Copy your remote signal",
+              "nl": "Kopieer het signaal van de afstandsbediening"
+            },
+            "instruction": {
+              "en": "Click a button on your remote to pair it.",
+              "nl": "Klik op een willekeurige knop op de afstandsbediening om hem te koppelen."
+            }
+          }
+        }
+      ]
+    },
+    {
+      "images": {
+        "large": "/drivers/AB400DSS_socket/assets/images/large.jpg",
+        "small": "/drivers/AB400DSS_socket/assets/images/small.jpg"
+      },
+      "icon": "/drivers/AB400DSS_socket/assets/icon.svg",
+      "platforms": [
+        "local",
+        "cloud"
+      ],
+      "connectivity": [
+        "rf433"
+      ],
+      "capabilities": [
+        "onoff"
+      ],
+      "id": "AB400DSS_socket",
+      "name": {
+        "en": "AB400DSS Socket",
+        "nl": "AB400DSS Schakelaar"
+      },
+      "class": "socket",
+      "rf433": {
+        "satelliteMode": true
+      },
+      "pair": [
+        {
+          "id": "rf_receiver_learn",
+          "navigation": {
+            "next": "rf_dipswitch"
+          },
+          "options": {
+            "title": {
+              "en": "Copy the dipswitches",
+              "nl": "Kopieer de dipswitches"
+            },
+            "instruction": {
+              "en": "Add the device by manually setting the dipswitches.",
+              "nl": "Voeg het apparaat toe door handmatig de dipswitches in te instellen."
+            },
+            "copyFromRemote": {
+              "en": "Copy from remote",
+              "nl": "Kopieer van afstandsbediening"
+            }
+          }
+        },
+        {
+          "id": "rf_dipswitch",
+          "navigation": {
+            "prev": "rf_receiver_learn"
+          },
+          "options": {
+            "title": {
+              "en": "Copy the dipswitches",
+              "nl": "Kopieer de dipswitches"
+            },
+            "instruction": {
+              "en": "Click on the dipswitches to put them in the same arrangement as those of your device, plug in the socket, then press the checkmark.",
+              "nl": "Klik op de bovenstaande dipswitches om ze gelijk aan de dipswitches van het apparaat in te stellen, druk daarna op het vinkje."
+            },
+            "dipswitchList": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              [
+                6,
+                7,
+                8,
+                9,
+                10
+              ]
+            ]
+          }
+        },
+        {
+          "id": "rf_transmitter_learn",
+          "navigation": {
+            "prev": "rf_receiver_learn"
+          },
+          "options": {
+            "title": {
+              "en": "Copy your remote signal",
+              "nl": "Kopieer het signaal van de afstandsbediening"
+            },
+            "instruction": {
+              "en": "Press the button that is paired to your socket.",
+              "nl": "Druk op de knop van de afstandsbediening waarmee het apparaat gekoppeld is."
+            }
+          }
+        }
+      ]
+    },
+    {
+      "images": {
+        "large": "/drivers/FA21RF/assets/images/large.jpg",
+        "small": "/drivers/FA21RF/assets/images/small.jpg"
+      },
+      "icon": "/drivers/FA21RF/assets/icon.svg",
+      "platforms": [
+        "local",
+        "cloud"
+      ],
+      "connectivity": [
+        "rf433"
+      ],
+      "capabilities": [
+        "alarm_smoke"
+      ],
+      "id": "FA21RF",
+      "name": {
+        "en": "FA21RF Smoke Detector",
+        "nl": "FA21RF Rook Sensor"
+      },
+      "class": "sensor",
+      "pair": [
+        {
+          "id": "rf_transmitter_learn",
+          "options": {
+            "title": {
+              "en": "Copy your smokesensor signal",
+              "nl": "Kopieer het signaal van de rookmelder"
+            },
+            "instruction": {
+              "en": "Press and hold the test button until it beeps. Alternatively, press and hold the learn button until the device is paired.",
+              "nl": "Houd de testknop een aantal seconde ingedrukt tot de rookmelder piept."
+            }
+          }
+        }
+      ]
+    },
+    {
+      "images": {
+        "large": "/drivers/FA500_dimmer/assets/images/large.jpg",
+        "small": "/drivers/FA500_dimmer/assets/images/small.jpg"
+      },
+      "icon": "/drivers/FA500_dimmer/assets/icon.svg",
+      "platforms": [
+        "local",
+        "cloud"
+      ],
+      "connectivity": [
+        "rf433"
+      ],
+      "capabilities": [
+        "onoff",
+        "dim"
+      ],
+      "id": "FA500_dimmer",
+      "name": {
+        "en": "FA500D Dimmer Socket",
+        "nl": "FA500D Dimbare Schakelaar"
+      },
+      "class": "socket",
+      "rf433": {
+        "satelliteMode": true
+      },
+      "pair": [
+        {
+          "id": "rf_receiver_learn",
+          "navigation": {
+            "next": "rf_receiver_add"
+          },
+          "options": {
+            "title": {
+              "en": "Put the dimmer socket in pairing mode",
+              "nl": "Zet de dimbare contactdoos in programmeer modus"
+            },
+            "instruction": {
+              "en": "Unplug the dimmer socket for a couple of seconds and plug it back in, the light should now be blinking. When it is in pairing mode click 'Next'.",
+              "nl": "Haal de dimbare contactdoos uit het stopcontact voor een aantal seconden en plaats hem terug in het stopcontact. Het rode lampje zou nu moeten knipperen. Wanneer het apparaat in koppelmodus is klik op 'Volgende'."
+            },
+            "copyFromRemote": {
+              "en": "Copy from remote",
+              "nl": "Kopieer van afstandsbediening"
+            }
+          }
+        },
+        {
+          "id": "rf_receiver_add",
+          "navigation": {
+            "prev": "rf_receiver_learn"
+          },
+          "options": {
+            "instruction": {
+              "en": "Did the red light turn off and continuously on after that?",
+              "nl": "Ging het rode lampje uit, en daarnaa volledig aan?"
+            }
+          }
+        },
+        {
+          "id": "rf_transmitter_learn",
+          "navigation": {
+            "prev": "rf_receiver_learn"
+          },
+          "options": {
+            "title": {
+              "en": "Copy your remote signal",
+              "nl": "Kopieer het signaal van de afstandsbediening"
+            },
+            "instruction": {
+              "en": "Press the button that is paired to your dimmer socket.",
+              "nl": "Druk op de knop van de afstandsbediening waarmee de  dimbare contactdoos gekoppeld is."
+            }
+          }
+        }
+      ]
+    },
+    {
+      "images": {
+        "large": "/drivers/FA500_remote/assets/images/large.jpg",
+        "small": "/drivers/FA500_remote/assets/images/small.jpg"
+      },
+      "icon": "/drivers/FA500_remote/assets/icon.svg",
+      "platforms": [
+        "local",
+        "cloud"
+      ],
+      "connectivity": [
+        "rf433"
+      ],
+      "capabilities": [],
+      "id": "FA500_remote",
+      "name": {
+        "en": "FA500S Remote",
+        "nl": "FA500S Afstandsbediening"
+      },
+      "class": "remote",
+      "pair": [
+        {
+          "id": "rf_transmitter_learn",
+          "options": {
+            "title": {
+              "en": "Copy your remote signal",
+              "nl": "Kopieer het signaal van de afstandsbediening"
+            },
+            "instruction": {
+              "en": "Click a button on your remote to pair it.",
+              "nl": "Klik op een willekeurige knop op de afstandsbediening om hem te koppelen."
+            }
+          }
+        }
+      ]
+    },
+    {
+      "images": {
+        "large": "/drivers/FA500_socket/assets/images/large.jpg",
+        "small": "/drivers/FA500_socket/assets/images/small.jpg"
+      },
+      "icon": "/drivers/FA500_socket/assets/icon.svg",
+      "platforms": [
+        "local",
+        "cloud"
+      ],
+      "connectivity": [
+        "rf433"
+      ],
+      "capabilities": [
+        "onoff"
+      ],
+      "id": "FA500_socket",
+      "name": {
+        "en": "FA500x Socket",
+        "nl": "FA500x Schakelaar"
+      },
+      "class": "socket",
+      "rf433": {
+        "satelliteMode": true
+      },
+      "pair": [
+        {
+          "id": "rf_receiver_learn",
+          "navigation": {
+            "next": "rf_receiver_add"
+          },
+          "options": {
+            "title": {
+              "en": "Put the socket in pairing mode",
+              "nl": "Zet de contactdoos in programmeer modus"
+            },
+            "instruction": {
+              "en": "Unplug the socket for a couple of seconds and plug it back in, the light should now be blinking. When it is in pairing mode click 'Next'.",
+              "nl": "Haal de contactdoos uit het stopcontact voor een aantal seconden en plaats hem terug in het stopcontact. Het rode lampje zou nu moeten knipperen. Wanneer het apparaat in koppelmodus is klik op 'Volgende'."
+            },
+            "copyFromRemote": {
+              "en": "Copy from remote",
+              "nl": "Kopieer van afstandsbediening"
+            }
+          }
+        },
+        {
+          "id": "rf_receiver_add",
+          "navigation": {
+            "prev": "rf_receiver_learn"
+          },
+          "options": {
+            "instruction": {
+              "en": "Did the socket turn on?",
+              "nl": "Ging de contactdoos aan?"
+            }
+          }
+        },
+        {
+          "id": "rf_transmitter_learn",
+          "navigation": {
+            "prev": "rf_receiver_learn"
+          },
+          "options": {
+            "title": {
+              "en": "Copy your remote signal",
+              "nl": "Kopieer het signaal van de afstandsbediening"
+            },
+            "instruction": {
+              "en": "Press the button that is paired to your socket.",
+              "nl": "Druk op de knop van de afstandsbediening waarmee het apparaat gekoppeld is."
+            }
+          }
+        }
+      ]
+    },
+    {
+      "images": {
+        "large": "/drivers/SF-501P/assets/images/large.jpg",
+        "small": "/drivers/SF-501P/assets/images/small.jpg"
+      },
+      "icon": "/drivers/SF-501P/assets/icon.svg",
+      "platforms": [
+        "local",
+        "cloud"
+      ],
+      "connectivity": [
+        "rf433"
+      ],
+      "capabilities": [
+        "onoff"
+      ],
+      "id": "SF-501P",
+      "name": {
+        "en": "SF-501P Socket",
+        "nl": "SF-501P Schakelaar"
+      },
+      "class": "socket",
+      "rf433": {
+        "satelliteMode": true
+      },
+      "pair": [
+        {
+          "id": "rf_receiver_learn",
+          "navigation": {
+            "next": "rf_receiver_add"
+          },
+          "options": {
+            "title": {
+              "en": "Put the socket in pairing mode",
+              "nl": "Zet de contactdoos in programmeer modus"
+            },
+            "instruction": {
+              "en": "Unplug the socket for a couple of seconds and plug it back in, the light should now be blinking. When it is in pairing mode click 'Next'.",
+              "nl": "Haal de contactdoos uit het stopcontact voor een aantal seconden en plaats hem terug in het stopcontact. Het rode lampje zou nu moeten knipperen. Wanneer het apparaat in koppelmodus is klik op 'Volgende'."
+            },
+            "copyFromRemote": {
+              "en": "Copy from remote",
+              "nl": "Kopieer van afstandsbediening"
+            }
+          }
+        },
+        {
+          "id": "rf_receiver_add",
+          "navigation": {
+            "prev": "rf_receiver_learn"
+          },
+          "options": {
+            "instruction": {
+              "en": "Did the socket turn on?",
+              "nl": "Ging de contactdoos aan?"
+            }
+          }
+        },
+        {
+          "id": "rf_transmitter_learn",
+          "navigation": {
+            "prev": "rf_receiver_learn"
+          },
+          "options": {
+            "title": {
+              "en": "Copy your remote signal",
+              "nl": "Kopieer het signaal van de afstandsbediening"
+            },
+            "instruction": {
+              "en": "Press the button that is paired to your socket.",
+              "nl": "Druk op de knop van de afstandsbediening waarmee het apparaat gekoppeld is."
+            }
+          }
+        }
+      ]
+    },
+    {
+      "images": {
+        "large": "/drivers/SF-501R/assets/images/large.jpg",
+        "small": "/drivers/SF-501R/assets/images/small.jpg"
+      },
+      "icon": "/drivers/SF-501R/assets/icon.svg",
+      "platforms": [
+        "local",
+        "cloud"
+      ],
+      "connectivity": [
+        "rf433"
+      ],
+      "capabilities": [],
+      "id": "SF-501R",
+      "name": {
+        "en": "SF-501R Remote",
+        "nl": "SF-501R Afstandsbediening"
+      },
+      "class": "remote",
+      "pair": [
+        {
+          "id": "rf_transmitter_learn",
+          "options": {
+            "title": {
+              "en": "Copy your remote signal",
+              "nl": "Kopieer het signaal van de afstandsbediening"
+            },
+            "instruction": {
+              "en": "Click a button on your remote to pair it.",
+              "nl": "Klik op een willekeurige knop op de afstandsbediening om hem te koppelen."
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "signals": {
+    "433": {
+      "flamingo": {
+        "sof": [
+          225,
+          2774
+        ],
+        "eof": [
+          236
+        ],
+        "words": [
+          [
+            240,
+            308,
+            240,
+            1348
+          ],
+          [
+            240,
+            1338,
+            240,
+            320
+          ]
+        ],
+        "interval": 10150,
+        "sensitivity": 0.5,
+        "repetitions": 5,
+        "minimalLength": 32,
+        "maximalLength": 36
+      },
+      "flamingo-elro": {
+        "sof": [],
+        "eof": [
+          331
+        ],
+        "words": [
+          [
+            322,
+            1066,
+            1018,
+            367
+          ],
+          [
+            330,
+            1058,
+            329,
+            1057
+          ]
+        ],
+        "interval": 9940,
+        "repetitions": 10,
+        "sensitivity": 0.5,
+        "minimalLength": 12,
+        "maximalLength": 12
+      },
+      "flamingo-promax": {
+        "sof": [
+          260,
+          5000
+        ],
+        "eof": [],
+        "words": [
+          [
+            280,
+            1050
+          ],
+          [
+            960,
+            400
+          ]
+        ],
+        "sensitivity": 0.27,
+        "repetitions": 4,
+        "minimalLength": 28,
+        "maximalLength": 28
+      },
+      "flamingo-smoke": {
+        "sof": [
+          8090,
+          912,
+          797
+        ],
+        "eof": [],
+        "words": [
+          [
+            2742,
+            797
+          ],
+          [
+            1395,
+            797
+          ]
+        ],
+        "interval": 12770,
+        "sensitivity": 0.5,
+        "repetitions": 50,
+        "minimalLength": 24,
+        "maximalLength": 24
+      }
+    }
+  }
+}
